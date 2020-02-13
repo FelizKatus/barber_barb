@@ -6,10 +6,13 @@ require 'sqlite3'
 require 'pony'
 
 get '/' do
-  erb :index
+  erb :about
 end
 
 get '/ticket' do
+  @barbers = {}
+
+  erb :ticket
 end
 
 post '/ticket' do
