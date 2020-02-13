@@ -1,0 +1,15 @@
+# IDE
+.idea
+.vscode
+
+# Tools
+.bundle
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# DB
+db.sqlite*
