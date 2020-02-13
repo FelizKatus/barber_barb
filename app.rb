@@ -9,12 +9,18 @@ get '/' do
   erb :index
 end
 
+get '/ticket' do
+end
+
+post '/ticket' do
+end
+
 get '/contact' do
   erb :contact
 end
 
 post '/contact' do
-  @name   = params[:name]
+  @name    = params[:name]
   @email   = params[:email]
   @subject = params[:subject]
   @message = params[:message]
@@ -50,4 +56,7 @@ post '/contact' do
   @message = '¡Gracias! Email sido enviado.'
 
   erb :contact
+end
+
+get '/customers' do
 end
