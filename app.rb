@@ -5,12 +5,56 @@ require 'sinatra/reloader'
 require 'sqlite3'
 require 'pony'
 
+def init_db
+  db = SQLite3::Database.new 'db.sqlite'
+  db.results_as_hash = true
+  db
+end
+
+configure do
+  db = init_db
+  db.execute 'CREATE TABLE IF NOT EXISTS "Barbers" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "barber" TEXT
+  )'
+  db.execute 'CREATE TABLE IF NOT EXISTS "Customers" (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT,
+    "phone" TEXT,
+    "barber" TEXT,
+    "color" TEXT,
+    "dateandtime" TEXT
+  )'
+  #seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
+end
+
+before do
+  @barbers = {}
+end
+
 get '/' do
   erb :about
 end
 
 get '/ticket' do
-  @barbers = {}
+  @name        = params[:name]
+  @phone       = params[:phone]
+  @barber      = params[:barber]
+  @dateandtime = params[:datetimepicker]
+  @color       = params[:colorpicker]
+
+  hh = {:name        => 'Su nombre',
+        :phone       => 'Su teléfono',
+        :dateandtime => 'El día y la hora'}
+
+  hh.each do |key, value|
+    if params[key] == ''
+      @error = hh[key]
+      return erb :ticket if @error != ''
+    end
+  end
+
+  @message = "¡Gracias! Estimado/a #{@name}, te esperamos en nuestras instalaciones el día y hora #{@dateandtime}"
 
   erb :ticket
 end
