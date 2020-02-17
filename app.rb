@@ -11,25 +11,37 @@ def init_db
   db
 end
 
+def seed_db(db, barbers)
+  barbers.each do |barber|
+    if !is_barber_exists?(db, barber)
+      db.execute 'INSERT INTO Barbers (barber) VALUES (?)', [barber]
+    end
+  end
+end
+
+def is_barber_exists?(db, name)
+  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
+end
+
 configure do
   db = init_db
-  db.execute 'CREATE TABLE IF NOT EXISTS "Barbers" (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "barber" TEXT
+  db.execute 'CREATE TABLE IF NOT EXISTS Barbers (
+    barber TEXT
   )'
-  db.execute 'CREATE TABLE IF NOT EXISTS "Customers" (
-    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "name" TEXT,
-    "phone" TEXT,
-    "barber" TEXT,
-    "color" TEXT,
-    "dateandtime" TEXT
+  db.execute 'CREATE TABLE IF NOT EXISTS Customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT,
+    phone TEXT,
+    barber TEXT,
+    dateandtime TEXT,
+    color TEXT
   )'
-  #seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
+  seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
 end
 
 before do
-  @barbers = {}
+  db = init_db
+  @barbers = db.execute 'SELECT * FROM Barbers'
 end
 
 get '/' do
@@ -37,6 +49,10 @@ get '/' do
 end
 
 get '/ticket' do
+  erb :ticket
+end
+
+post '/ticket' do
   @name        = params[:name]
   @phone       = params[:phone]
   @barber      = params[:barber]
@@ -56,10 +72,11 @@ get '/ticket' do
 
   @message = "¡Gracias! Estimado/a #{@name}, te esperamos en nuestras instalaciones el día y hora #{@dateandtime}"
 
-  erb :ticket
-end
+  db = init_db
+  db.execute 'INSERT INTO Customers (name, phone, barber, dateandtime, color)
+    VALUES (?, ?, ?, ?, ?)', [@name, @phone, @barber, @dateandtime, @color]
 
-post '/ticket' do
+  erb :ticket
 end
 
 get '/contact' do
