@@ -31,7 +31,7 @@
   </div>
   <div class="form-group">
     <label for="colorpicker">Color</label>
-    <select class="form-control" id="colorpicker" name="colorpicker">
+    <select class="form-control" id="colorpicker" name="colorpicker" aria-describedby="colorpickerHelp">
       <option selected value="">None</option>
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
@@ -46,6 +46,7 @@
       <option value="#dbadff">Purple</option>
       <option value="#e1e1e1">Gray</option>
     </select>
+    <small id="colorpickerHelp" class="form-text text-muted">No color by default.</small>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>

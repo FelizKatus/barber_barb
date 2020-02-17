@@ -8,7 +8,7 @@ require 'pony'
 def init_db
   db = SQLite3::Database.new 'db.sqlite'
   db.results_as_hash = true
-  db
+  return db
 end
 
 def seed_db(db, barbers)
@@ -123,4 +123,5 @@ post '/contact' do
 end
 
 get '/customers' do
+  erb :customers
 end
