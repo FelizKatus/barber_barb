@@ -11,16 +11,16 @@ def init_db
   return db
 end
 
+def is_barber_exists?(db, name)
+  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
+end
+
 def seed_db(db, barbers)
   barbers.each do |barber|
     if !is_barber_exists?(db, barber)
       db.execute 'INSERT INTO Barbers (barber) VALUES (?)', [barber]
     end
   end
-end
-
-def is_barber_exists?(db, name)
-  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
 end
 
 configure do
@@ -123,5 +123,8 @@ post '/contact' do
 end
 
 get '/customers' do
+  db = init_db
+  @customers = db.execute 'SELECT * FROM Customers ORDER BY id DESC'
+
   erb :customers
 end

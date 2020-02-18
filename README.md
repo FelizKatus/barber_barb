@@ -25,3 +25,5 @@ Eres libre y tienes derecho de hacer todo lo que quieres.
 ![Formulario de cita](screenshots/ticket_form.png "Formulario de cita")
 
 ![Formulario de contacto](screenshots/contact_form.png "Formulario de contacto")
+
+![Lista de tickets](screenshots/ticket_list.png "Lista de tickets")
