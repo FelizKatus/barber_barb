@@ -1,9 +1,3 @@
-<% if @message && @message.length > 0 then %>
-  <div class="alert alert-primary" role="alert">
-    <%= @message %>
-  </div>
-<% end %>
-
 <h1>Ticket</h1>
 
 <p class="lead">En esa página puedes conseguir un ticket a nuestra fantastica peluquería.</p>
@@ -21,7 +15,7 @@
     <label for="barber">Barber</label>
     <select class="form-control" id="barber" name="barber">
       <% @barbers.each do |item| %>
-        <option <%= @barber == item[0] ? 'selected' : '' %>><%= item[0] %></option>
+        <option <%= @barber == item['barber'] ? 'selected' : '' %>><%= item['barber'] %></option>
       <% end %>
     </select>
   </div>

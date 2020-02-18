@@ -70,13 +70,11 @@ post '/ticket' do
     end
   end
 
-  @message = "¡Gracias! Estimado/a #{@name}, te esperamos en nuestras instalaciones el día y hora #{@dateandtime}"
-
   db = init_db
   db.execute 'INSERT INTO Customers (name, phone, barber, dateandtime, color)
     VALUES (?, ?, ?, ?, ?)', [@name, @phone, @barber, @dateandtime, @color]
 
-  erb :ticket
+  erb "¡Gracias! Estimado/a #{@name}, te esperamos el día y la hora #{@dateandtime}"
 end
 
 get '/contact' do
@@ -117,9 +115,7 @@ post '/contact' do
       :domain               => 'localhost.localdomain'
     })
 
-  @message = '¡Gracias! Email sido enviado.'
-
-  erb :contact
+  erb '¡Gracias! Email sido enviado.'
 end
 
 get '/customers' do

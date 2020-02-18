@@ -12,7 +12,7 @@
 
 #### De la caja
 
-* Citas
+* Tickets
 * Formulario de contacto
 * Verificación de formularios
 
@@ -24,6 +24,6 @@ Eres libre y tienes derecho de hacer todo lo que quieres.
 
 ![Formulario de cita](screenshots/ticket_form.png "Formulario de cita")
 
-![Formulario de contacto](screenshots/contact_form.png "Formulario de contacto")
+![Lista de citas](screenshots/customers_list.png "Lista de citas")
 
-![Lista de tickets](screenshots/ticket_list.png "Lista de tickets")
+![Formulario de contacto](screenshots/contact_form.png "Formulario de contacto")
