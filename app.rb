@@ -11,6 +11,9 @@ set :database, "sqlite3:db.sqlite"
 class Customer < ActiveRecord::Base
 end
 
+class Barber < ActiveRecord:: Base
+end
+
 #def init_db
 #  db = SQLite3::Database.new 'db.sqlite'
 #  db.results_as_hash = true
