@@ -43,7 +43,8 @@ post '/ticket' do
     return erb "¡Gracias! El ticket está creado."
   end
 
-  erb "¡Lo sentimos! El ticket no está creado..."
+  @error = c.errors.full_messages.first
+  erb :contact
 end
 
 get '/contact' do
