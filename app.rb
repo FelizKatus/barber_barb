@@ -9,6 +9,10 @@ require 'pony'
 set :database, "sqlite3:db.sqlite"
 
 class Customer < ActiveRecord::Base
+  validates :name, presence: true
+  validates :phone, presence: true
+  validates :barber, presence: true
+  validates :dateandtime, presence: true
 end
 
 class Barber < ActiveRecord:: Base
@@ -35,9 +39,11 @@ end
 
 post '/ticket' do
   c = Customer.new params[:customer]
-  c.save
+  if c.save
+    return erb "¡Gracias! El ticket está creado."
+  end
 
-  erb "¡Gracias! El ticket está creado."
+  erb "¡Lo sentimos! El ticket no está creado..."
 end
 
 get '/contact' do
