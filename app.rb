@@ -14,43 +14,11 @@ end
 class Barber < ActiveRecord:: Base
 end
 
-#def init_db
-#  db = SQLite3::Database.new 'db.sqlite'
-#  db.results_as_hash = true
-#  return db
-#end
-
-#def is_barber_exists?(db, name)
-#  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
-#end
-
-#def seed_db(db, barbers)
-#  barbers.each do |barber|
-#    if !is_barber_exists?(db, barber)
-#      db.execute 'INSERT INTO Barbers (barber) VALUES (?)', [barber]
-#    end
-#  end
-#end
-
 configure do
-  #db = init_db
-  #db.execute 'CREATE TABLE IF NOT EXISTS Barbers (
-  #  barber TEXT
-  #)'
-  #db.execute 'CREATE TABLE IF NOT EXISTS Customers (
-  #  id INTEGER PRIMARY KEY AUTOINCREMENT,
-  #  name TEXT,
-  #  phone TEXT,
-  #  barber TEXT,
-  #  dateandtime TEXT,
-  #  color TEXT
-  #)'
-  #seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
 end
 
 before do
-  #db = init_db
-  #@barbers = db.execute 'SELECT * FROM Barbers'
+  @barbers = Barber.all
 end
 
 get '/' do
@@ -58,8 +26,6 @@ get '/' do
 end
 
 get '/barbers' do
-  @barbers = Barber.all
-  
   erb :barbers
 end
 
@@ -68,28 +34,10 @@ get '/ticket' do
 end
 
 post '/ticket' do
-  @name        = params[:name]
-  @phone       = params[:phone]
-  @barber      = params[:barber]
-  @dateandtime = params[:datetimepicker]
-  @color       = params[:colorpicker]
+  c = Customer.new params[:customer]
+  c.save
 
-  hh = {:name        => 'Su nombre',
-        :phone       => 'Su teléfono',
-        :dateandtime => 'El día y la hora'}
-
-  hh.each do |key, value|
-    if params[key] == ''
-      @error = hh[key]
-      return erb :ticket if @error != ''
-    end
-  end
-
-  #db = init_db
-  #db.execute 'INSERT INTO Customers (name, phone, barber, dateandtime, color)
-  #  VALUES (?, ?, ?, ?, ?)', [@name, @phone, @barber, @dateandtime, @color]
-
-  erb "¡Gracias! Estimado/a #{@name}, te esperamos el día y la hora #{@dateandtime}"
+  erb "¡Gracias! El ticket está creado."
 end
 
 get '/contact' do
@@ -115,11 +63,11 @@ post '/contact' do
   end
 
   Pony.mail(
-    :from    => params[:name] + "<" + params[:email] + ">",
-    :to      => 'username@example.com',
-    :subject => params[:name] + " está comunicando",
-    :body    => params[:message],
-    :via     => :smtp,
+    :from        => params[:name] + "<" + params[:email] + ">",
+    :to          => 'username@example.com',
+    :subject     => params[:name] + " está comunicando",
+    :body        => params[:message],
+    :via         => :smtp,
     :via_options => { 
       :address              => 'smtp.gmail.com', 
       :port                 => '587', 
@@ -134,8 +82,7 @@ post '/contact' do
 end
 
 get '/customers' do
-  #db = init_db
-  #@customers = db.execute 'SELECT * FROM Customers ORDER BY id DESC'
+  @customers = Customer.order "created_at DESC"
 
   erb :customers
 end
