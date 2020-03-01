@@ -34,16 +34,17 @@ get '/barbers' do
 end
 
 get '/ticket' do
+  @c = Customer.new
   erb :ticket
 end
 
 post '/ticket' do
-  c = Customer.new params[:customer]
-  if c.save
+  @c = Customer.new params[:customer]
+  if @c.save
     return erb "¡Gracias! El ticket está creado."
   end
 
-  @error = c.errors.full_messages.first
+  @error = @c.errors.full_messages.first
   erb :contact
 end
 

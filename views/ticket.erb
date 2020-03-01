@@ -5,11 +5,11 @@
 <form action="/ticket" method="post">
   <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="customer[name]" value="" placeholder="Name" required>
+    <input type="text" class="form-control" id="name" name="customer[name]" value="<%= @c.name %>" placeholder="Name" required>
   </div>
   <div class="form-group">
     <label for="phone">Phone</label>
-    <input type="tel" class="form-control" id="phone" name="customer[phone]" value="" placeholder="Phone" required>
+    <input type="tel" class="form-control" id="phone" name="customer[phone]" value="<%= @c.phone %>" placeholder="Phone" required>
   </div>
   <div class="form-group">
     <label for="barber">Barber</label>
