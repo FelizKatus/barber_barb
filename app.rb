@@ -57,6 +57,10 @@ get '/' do
   erb :about
 end
 
+get '/barbers' do
+  erb :barbers
+end
+
 get '/ticket' do
   erb :ticket
 end
