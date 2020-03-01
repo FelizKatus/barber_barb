@@ -9,6 +9,6 @@ gem "activerecord"
 gem "sinatra-activerecord"
 gem "pony"
 
-group development do
+group :development do
   gem "tux"
 end
