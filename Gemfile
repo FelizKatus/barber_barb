@@ -10,5 +10,6 @@ gem "sinatra-activerecord"
 gem "pony"
 
 group :development do
+  gem "rake"
   gem "tux"
 end
