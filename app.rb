@@ -3,7 +3,13 @@
 require 'sinatra'
 require 'sinatra/reloader'
 require 'sqlite3'
+require 'sinatra/activerecord'
 require 'pony'
+
+set :database, "sqlite3:db.sqlite"
+
+class Customer < ActiveRecord::Base
+end
 
 def init_db
   db = SQLite3::Database.new 'db.sqlite'
