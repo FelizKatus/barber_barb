@@ -11,43 +11,43 @@ set :database, "sqlite3:db.sqlite"
 class Customer < ActiveRecord::Base
 end
 
-def init_db
-  db = SQLite3::Database.new 'db.sqlite'
-  db.results_as_hash = true
-  return db
-end
+#def init_db
+#  db = SQLite3::Database.new 'db.sqlite'
+#  db.results_as_hash = true
+#  return db
+#end
 
-def is_barber_exists?(db, name)
-  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
-end
+#def is_barber_exists?(db, name)
+#  db.execute('SELECT * FROM Barbers WHERE barber=?', [name]).length > 0
+#end
 
-def seed_db(db, barbers)
-  barbers.each do |barber|
-    if !is_barber_exists?(db, barber)
-      db.execute 'INSERT INTO Barbers (barber) VALUES (?)', [barber]
-    end
-  end
-end
+#def seed_db(db, barbers)
+#  barbers.each do |barber|
+#    if !is_barber_exists?(db, barber)
+#      db.execute 'INSERT INTO Barbers (barber) VALUES (?)', [barber]
+#    end
+#  end
+#end
 
 configure do
-  db = init_db
-  db.execute 'CREATE TABLE IF NOT EXISTS Barbers (
-    barber TEXT
-  )'
-  db.execute 'CREATE TABLE IF NOT EXISTS Customers (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
-    name TEXT,
-    phone TEXT,
-    barber TEXT,
-    dateandtime TEXT,
-    color TEXT
-  )'
-  seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
+  #db = init_db
+  #db.execute 'CREATE TABLE IF NOT EXISTS Barbers (
+  #  barber TEXT
+  #)'
+  #db.execute 'CREATE TABLE IF NOT EXISTS Customers (
+  #  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  #  name TEXT,
+  #  phone TEXT,
+  #  barber TEXT,
+  #  dateandtime TEXT,
+  #  color TEXT
+  #)'
+  #seed_db(db, ['Alberto Cerdán', 'Josep Pons', 'Moncho Moreno', 'Lorena Morlote', 'Raffel Pages', 'Amparo Fernández', 'Olga García'])
 end
 
 before do
-  db = init_db
-  @barbers = db.execute 'SELECT * FROM Barbers'
+  #db = init_db
+  #@barbers = db.execute 'SELECT * FROM Barbers'
 end
 
 get '/' do
@@ -76,9 +76,9 @@ post '/ticket' do
     end
   end
 
-  db = init_db
-  db.execute 'INSERT INTO Customers (name, phone, barber, dateandtime, color)
-    VALUES (?, ?, ?, ?, ?)', [@name, @phone, @barber, @dateandtime, @color]
+  #db = init_db
+  #db.execute 'INSERT INTO Customers (name, phone, barber, dateandtime, color)
+  #  VALUES (?, ?, ?, ?, ?)', [@name, @phone, @barber, @dateandtime, @color]
 
   erb "¡Gracias! Estimado/a #{@name}, te esperamos el día y la hora #{@dateandtime}"
 end
@@ -125,8 +125,8 @@ post '/contact' do
 end
 
 get '/customers' do
-  db = init_db
-  @customers = db.execute 'SELECT * FROM Customers ORDER BY id DESC'
+  #db = init_db
+  #@customers = db.execute 'SELECT * FROM Customers ORDER BY id DESC'
 
   erb :customers
 end
