@@ -9,7 +9,7 @@ require 'pony'
 set :database, "sqlite3:db.sqlite"
 
 class Customer < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, presence: true, length: { minimum: 2 }
   validates :phone, presence: true
   validates :barber, presence: true
   validates :dateandtime, presence: true
