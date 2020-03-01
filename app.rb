@@ -58,6 +58,8 @@ get '/' do
 end
 
 get '/barbers' do
+  @barbers = Barber.all
+  
   erb :barbers
 end
 
