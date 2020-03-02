@@ -20,7 +20,9 @@
           <%= barber['id'] %>
         </th>
         <td>
-          <%= barber['name'] %>
+          <a href="/barber/<%= barber.id %>">
+            <%= barber['name'] %>
+          </a>
         </td>
       </tr>
     <% end %>
