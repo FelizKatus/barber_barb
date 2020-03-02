@@ -33,6 +33,10 @@ get '/barbers' do
   erb :barbers
 end
 
+get '/barber/:id' do
+  erb :barber
+end
+
 get '/ticket' do
   @c = Customer.new
   erb :ticket

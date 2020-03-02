@@ -13,10 +13,11 @@
 #### De la caja:
 
 * Lista de peliqueros
-* Lista de consumidores
+* Página personal del peliquero
 * Formulario de ticket
 * Formulario de contacto
 * Verificación de formularios
+* Lista de consumidores
 
 #### Licensia:
 
