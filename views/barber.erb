@@ -1,4 +1,19 @@
-<h1><%= @barber.name %></h1>
-
-<p>Created at: <%= @barber.created_at %></p>
-<p>Updated at: <%= @barber.updated_at %></p>
+<div class="media">
+  <svg class="bd-placeholder-img mr-3" width="64" height="64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 64x64"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">64x64</text></svg>
+  <div class="media-body">
+    <h5 class="mt-0">
+      <%= @barber.name %>
+    </h5>
+    <p class="lead">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
+      sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
+      nunc ac nisi vulputate fringilla.</p>
+    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+      odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+      fringilla. Donec lacinia congue felis in faucibus.</p>
+    <p class="text-muted">
+      <small>
+        Created at: <%= @barber.created_at %> | Updated at: <%= @barber.updated_at %>
+      </small>
+    </p>
+  </div>
+</div>
