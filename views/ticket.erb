@@ -1,31 +1,71 @@
-<h1>Ticket</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Ticket</li>
+  </ol>
+</nav>
 
-<p class="lead">En esa página puedes conseguir un ticket a nuestra fantastica peluquería.</p>
+<h2 class="featurette-heading">
+  Ticket.
+  <span class="text-muted">
+    It’ll blow your mind.
+  </span>
+</h2>
 
-<form action="/ticket" method="post">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" name="customer[name]" value="<%= @c.name %>" placeholder="Name" required>
+<hr class="featurette-divider">
+
+<p class="lead">
+  Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
+  Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+</p>
+
+<% if @error && @error.length > 0 then %>
+  <div class="alert alert-danger" role="alert">
+    <%= @error %>
   </div>
-  <div class="form-group">
-    <label for="phone">Phone</label>
-    <input type="tel" class="form-control" id="phone" name="customer[phone]" value="<%= @c.phone %>" placeholder="Phone" required>
+<% end %>
+
+<form action="/ticket" method="post" class="needs-validation" novalidate>
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInputName" name="customer[name]" value="<%= @c.name %>" placeholder="" required>
+    <label for="floatingInputName">Name</label>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please put your name.
+    </div>
   </div>
-  <div class="form-group">
-    <label for="barber">Barber</label>
-    <select class="form-control" id="barber" name="customer[barber]">
+  <div class="form-floating mb-3">
+    <input type="text" class="form-control" id="floatingInputPhone" name="customer[phone]" value="<%= @c.phone %>" placeholder="" required>
+    <label for="floatingInputPhone">Phone</label>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please put your phone.
+    </div>
+  </div>
+  <div class="form-floating mb-3">
+    <select class="form-select" id="floatingSelectBarber" name="customer[barber]" aria-label="Floating label select example" required>
       <% @barbers.each do |item| %>
-        <option <%= @barber == item['name'] ? 'selected' : '' %>><%= item['name'] %></option>
+        <option <%= @barber == item['name'] ? 'selected' : '' %>> <%= item['name'] %> </option>
       <% end %>
     </select>
+    <label for="floatingSelectBarber">Barber</label>
   </div>
-  <div class="form-group">
-    <label for="datetimepicker">Date and Time</label>
+  <div class="form-floating mb-3">
     <input type="text" class="form-control" id="datetimepicker" name="customer[dateandtime]" placeholder="Date and Time" autocomplete="off" required>
+    <label for="datetimepicker">Date and Time</label>
+    <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please select a date and a time.
+    </div>
   </div>
-  <div class="form-group">
-    <label for="colorpicker">Color</label>
-    <select class="form-control" id="colorpicker" name="customer[color]" aria-describedby="colorpickerHelp">
+  <div class="form-floating mb-3">
+    <select class="form-control" id="colorpicker" name="customer[color]" aria-laber="ColorPicker example" required>
       <option selected value="">None</option>
       <option value="#7bd148">Green</option>
       <option value="#5484ed">Bold blue</option>
@@ -42,5 +82,8 @@
     </select>
     <small id="colorpickerHelp" class="form-text text-muted">No color by default.</small>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <button class="btn btn-primary" type="submit">Submit form</button>
 </form>
+
+<hr class="featurette-divider">

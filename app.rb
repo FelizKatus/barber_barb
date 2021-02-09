@@ -26,7 +26,7 @@ before do
 end
 
 get '/' do
-  erb :about
+  erb :index
 end
 
 get '/barbers' do
@@ -47,7 +47,9 @@ end
 post '/ticket' do
   @c = Customer.new params[:customer]
   if @c.save
-    return erb "¡Gracias! El ticket está creado."
+    return erb '<hr class="featurette-divider">
+      ¡Gracias! El ticket está creado.
+      <hr class="featurette-divider\>'
   end
 
   @error = @c.errors.full_messages.first
@@ -78,21 +80,23 @@ post '/contact' do
 
   Pony.mail(
     :from        => params[:name] + "<" + params[:email] + ">",
-    :to          => 'username@example.com',
+    :to          => 'username@gmail.com',
     :subject     => params[:name] + " está comunicando",
     :body        => params[:message],
     :via         => :smtp,
     :via_options => { 
-      :address              => 'smtp.gmail.com', 
-      :port                 => '587', 
-      :enable_starttls_auto => true, 
-      :user_name            => 'username', 
-      :password             => 'password', 
-      :authentication       => :plain, 
+      :address              => 'smtp.gmail.com',
+      :port                 => '587',
+      :enable_starttls_auto => true,
+      :user_name            => 'username',
+      :password             => 'password',
+      :authentication       => :plain,
       :domain               => 'localhost.localdomain'
     })
 
-  erb '¡Gracias! Email sido enviado.'
+  erb '<hr class="featurette-divider">
+    ¡Gracias! Email sido enviado.
+    <hr class="featurette-divider">'
 end
 
 get '/customers' do

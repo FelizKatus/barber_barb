@@ -1,19 +1,46 @@
-<div class="media">
-  <svg class="bd-placeholder-img mr-3" width="64" height="64" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: 64x64"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">64x64</text></svg>
-  <div class="media-body">
-    <h5 class="mt-0">
-      <%= @barber.name %>
-    </h5>
-    <p class="lead">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante
-      sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum
-      nunc ac nisi vulputate fringilla.</p>
-    <p>Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="/">Home</a></li>
+    <li class="breadcrumb-item"><a href="/barbers">Barbers</a></li>
+    <li class="breadcrumb-item active" aria-current="page"><%= @barber.name %></li>
+  </ol>
+</nav>
+
+<h2 class="featurette-heading">
+  <%= @barber.name %>.
+  <span class="text-muted">
+    See for yourself.
+  </span>
+</h2>
+
+<hr class="featurette-divider">
+
+<div class="row featurette">
+  <div class="col-md-7">
+    <p class="lead">
+      Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper.
+      Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.
+    </p>
+    <p>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
       odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
-      fringilla. Donec lacinia congue felis in faucibus.</p>
+      fringilla.
+    </p>
+    <p>
+      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus
+      odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate
+      fringilla. Donec lacinia congue felis in faucibus.
+    </p>
     <p class="text-muted">
       <small>
         Created at: <%= @barber.created_at %> | Updated at: <%= @barber.updated_at %>
       </small>
     </p>
   </div>
+  <div class="col-md-5">
+    <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+  </div>
 </div>
+
+<hr class="featurette-divider">
