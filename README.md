@@ -1,6 +1,6 @@
 # Barber Barb
 
-**Barber Barb** es una plantilla para peliquerias simple de usar, ligera y rápida. Se desarrolla con las siguientes fantasticas tecnologías:
+**Barber Barb** es una plantilla para peliquerias simple de usar, ligera y rápida. Se desarrolla con las siguientes tecnologías:
 
 * Ruby
 * Sinatra
