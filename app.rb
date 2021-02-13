@@ -26,7 +26,7 @@ before do
 end
 
 get '/' do
-  erb :index
+  erb :home
 end
 
 get '/barbers' do
