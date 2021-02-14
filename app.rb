@@ -37,7 +37,7 @@ before '/secure/*' do
     session[:previous_url] = request.path
     @message = 'Sorry, you need to be logged in to visit ' + request.path
 
-    erb :login, :layout => false
+    halt erb(:login, :layout => false)
   end
 end
 
