@@ -19,10 +19,26 @@ class Barber < ActiveRecord:: Base
 end
 
 configure do
+  enable :sessions
+end
+
+helpers do
+  def username
+    session[:identity] ? session[:identity] : 'Hello stranger'
+  end
 end
 
 before do
   @barbers = Barber.all
+end
+
+before '/secure/*' do
+  unless session[:identity]
+    session[:previous_url] = request.path
+    @message = 'Sorry, you need to be logged in to visit ' + request.path
+
+    erb :login, :layout => false
+  end
 end
 
 get '/' do
@@ -41,11 +57,13 @@ end
 
 get '/ticket' do
   @c = Customer.new
+
   erb :ticket
 end
 
 post '/ticket' do
   @c = Customer.new params[:customer]
+
   if @c.save
     return erb '<hr class="featurette-divider">
       ¡Gracias! El ticket está creado.
@@ -53,6 +71,7 @@ post '/ticket' do
   end
 
   @error = @c.errors.full_messages.first
+
   erb :contact
 end
 
@@ -99,8 +118,26 @@ post '/contact' do
     <hr class="featurette-divider">'
 end
 
-get '/customers' do
+get '/secure/customers' do
+  @message = 'This is a secret place that only ' + session[:identity] + ' has access to!'
   @customers = Customer.order "created_at DESC"
 
   erb :customers
+end
+
+get '/login/form' do
+  erb :login, :layout => false
+end
+
+post '/login/attempt' do
+  session[:identity] = params['username']
+  where_user_came_from = session[:previous_url] || '/'
+  redirect to where_user_came_from
+end
+
+get '/logout' do
+  session.delete(:identity)
+  @message = 'Logged out'
+
+  erb :home
 end

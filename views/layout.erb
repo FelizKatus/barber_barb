@@ -66,10 +66,26 @@
               <li class="nav-item">
                 <a class="nav-link" href="/contact">Contact</a>
               </li>
+
+              <% if session[:identity] then %>
+                <li class="nav-item">
+                  <a class="nav-link" href="/secure/customers">Customers</a>
+                </li>
+              <% end %>
             </ul>
+
             <ul class="navbar-nav me-right mb-2 mb-md-0">
-              <li class="nav-item">
-                <a class="nav-link" href="/customers">Login</a>
+              <li class="nav-item dropdown dropdown-left">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%=username%>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                  <% unless session[:identity] then %>
+                    <li><a class="dropdown-item" href="/login/form">Login</a></li>
+                  <% else %>
+                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                  <% end %>
+                </ul>
               </li>
             </ul>
           </div>
@@ -139,6 +155,13 @@
 
       <div class="container marketing">
 
+        <% if @message && @message.length > 0 then %>
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            <%= @message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        <% end %>
+
         <%= yield %>
 
       </div><!-- /.container -->
@@ -165,6 +188,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="/assets/js/jquery.simplecolorpicker.js"></script>
     <script src="/assets/js/jquery.datetimepicker.full.js"></script>
-    <script src="/assets/js/app.js"></script>      
+    <script src="/assets/js/app.js"></script>
   </body>
 </html>

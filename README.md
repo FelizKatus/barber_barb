@@ -5,7 +5,6 @@
 * Ruby
 * Sinatra
 * Bootstrap
-* JavaScript
 * SQLite
 
 #### De la caja:
@@ -15,6 +14,7 @@
 * Formulario de ticket
 * Formulario de contacto
 * Verificación de formularios del lado de cliente y del servidor
+* autorización basada en sesión
 * Lista de consumidores
 
 #### Licensia:
@@ -43,6 +43,9 @@ Formulario de contacto ->
 
 Verificación del formulario ->
 ![Verificación del formulario](screenshots/contact_check.png "Verificación del formulario")
+
+Login ->
+![Login](screenshots/login.png "Login")
 
 Lista de citas ->
 ![Lista de citas](screenshots/customers.png "Lista de citas")

@@ -26,3 +26,9 @@ $(function(){
       }, false)
     })
 })()
+
+// Enable dismissal of an alert via JavaScript
+var alertList = document.querySelectorAll('.alert')
+alertList.forEach(function (alert) {
+  new bootstrap.Alert(alert)
+})
