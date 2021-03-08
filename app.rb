@@ -15,7 +15,7 @@ class Customer < ActiveRecord::Base
   validates :dateandtime, presence: true
 end
 
-class Barber < ActiveRecord:: Base
+class Barber < ActiveRecord::Base
 end
 
 configure do
@@ -85,10 +85,12 @@ post '/contact' do
   @subject = params[:subject]
   @message = params[:message]
 
-  hh = {:name    => 'Su nombre',
-        :email   => 'Su email',
-        :subject => 'Su subject',
-        :message => 'su message'}
+  hh = {
+    :name    => 'Su nombre',
+    :email   => 'Su email',
+    :subject => 'Su subject',
+    :message => 'su message'
+  }
 
   hh.each do |key, value|
     if params[key] == ''

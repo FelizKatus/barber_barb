@@ -48,30 +48,34 @@
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/">Barber Barb</a>
+          <a class="navbar-brand" href="/">
+            Barber Barb
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item active">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">
+                  Home
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/barbers">Barbers</a>
+                <a class="nav-link" href="/barbers">
+                  Barbers
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/ticket">Ticket</a>
+                <a class="nav-link" href="/ticket">
+                  Ticket
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact</a>
+                <a class="nav-link" href="/contact">
+                  Contact
+                </a>
               </li>
-
-              <% if session[:identity] then %>
-                <li class="nav-item">
-                  <a class="nav-link" href="/secure/customers">Customers</a>
-                </li>
-              <% end %>
             </ul>
 
             <ul class="navbar-nav me-right mb-2 mb-md-0">
@@ -81,9 +85,22 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                   <% unless session[:identity] then %>
-                    <li><a class="dropdown-item" href="/login/form">Login</a></li>
+                    <li>
+                      <a class="dropdown-item" href="/login/form">
+                        Login
+                      </a>
+                    </li>
                   <% else %>
-                    <li><a class="dropdown-item" href="/logout">Logout</a></li>
+                    <li>
+                      <a class="dropdown-item" href="/secure/customers">
+                        Customers
+                      </a>
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/logout">
+                        Logout
+                      </a>
+                    </li>
                   <% end %>
                 </ul>
               </li>
