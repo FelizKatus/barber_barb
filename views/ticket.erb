@@ -49,7 +49,7 @@
   <div class="form-floating mb-3">
     <select class="form-select" id="floatingSelectBarber" name="customer[barber]" aria-label="Floating label select example" required>
       <% @barbers.each do |item| %>
-        <option <%= @barber == item['name'] ? 'selected' : '' %>> <%= item['name'] %> </option>
+        <option <%= @barber == item.name ? 'selected' : '' %>> <%= item.name %> </option>
       <% end %>
     </select>
     <label for="floatingSelectBarber">Barber</label>

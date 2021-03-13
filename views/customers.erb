@@ -22,22 +22,22 @@
     <% @customers.each do |customer| %>
       <tr>
         <th scope="row">
-          <%= customer['id'] %>
+          <%= customer.id %>
         </th>
         <td>
-          <%= customer['name'] %>
+          <%= customer.name %>
         </td>
         <td>
-          <%= customer['phone'] %>
+          <%= customer.phone %>
         </td>
         <td>
-          <%= customer['barber'] %>
+          <%= customer.barber %>
         </td>
         <td>
-          <%= customer['dateandtime'] %>
+          <%= customer.dateandtime %>
         </td>
-        <td style="background-color: <%= customer['color'] %>">
-          <%= customer['color'] %>
+        <td style="background-color: <%= customer.color %>">
+          <%= customer.color %>
         </td>
       </tr>
     <% end %>
