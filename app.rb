@@ -16,6 +16,7 @@ class Customer < ActiveRecord::Base
 end
 
 class Barber < ActiveRecord::Base
+  validates :name, presence: true, length: { minimum: 2 }
 end
 
 configure do
@@ -72,7 +73,7 @@ post '/ticket' do
 
   @error = @c.errors.full_messages.first
 
-  erb :contact
+  erb :ticket
 end
 
 get '/contact' do
