@@ -23,6 +23,7 @@ Para autorizarse poner cualquier email, por ejemplo, *mail@example.com*
 #### Ejecutar:
 
 *bundle*
+
 *bundle exec ruby app.rb*
 
 #### Licensia:
