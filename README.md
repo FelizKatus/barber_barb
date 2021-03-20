@@ -15,7 +15,7 @@
 * Formulario de ticket
 * Formulario de contacto
 * Verificación de formularios del lado de cliente y del servidor
-* autorización basada en sesión
+* Autorización basada en sesión
 * Lista de consumidores
 
 Para autorizarse poner cualquier email, por ejemplo, *mail@example.com*
