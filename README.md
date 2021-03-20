@@ -1,11 +1,12 @@
 # Barber Barb
 
-**Barber Barb** es una plantilla para peliquerias simple de usar, ligera y rápida. Se desarrolla con las siguientes tecnologías:
+**Barber Barb** es una plantilla para peliqueria simple de usar, ligera y rápida. Se desarrolla con las siguientes tecnologías:
 
 * Ruby
 * Sinatra
-* Bootstrap
 * SQLite
+* Bootstrap
+* jQuery
 
 #### De la caja:
 
@@ -16,6 +17,13 @@
 * Verificación de formularios del lado de cliente y del servidor
 * autorización basada en sesión
 * Lista de consumidores
+
+Para autorizarse poner cualquier email, por ejemplo, *mail@example.com*
+
+#### Ejecutar:
+
+*bundle*
+*bundle exec ruby app.rb*
 
 #### Licensia:
 
