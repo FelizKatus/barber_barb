@@ -8,7 +8,7 @@
 * Bootstrap
 * jQuery
 
-#### De la caja:
+## De la caja:
 
 * Lista de peliqueros
 * Página personal del peliquero
@@ -20,17 +20,17 @@
 
 Para autorizarse poner cualquier email, por ejemplo, *mail@example.com*
 
-#### Ejecutar:
+## Ejecutar:
 
 *bundle*
 
 *bundle exec ruby app.rb*
 
-#### Licensia:
+## Licensia:
 
 Eres libre y tienes derecho de hacer todo lo que quieres :-)
 
-#### Pantallas:
+## Pantallas:
 
 Página de inicio:
 
@@ -68,7 +68,7 @@ Lista de citas:
 
 ![Lista de citas](screenshots/customers.png "Lista de citas")
 
-#### Fotos:
+## Fotos:
 
 [Dan Gold](https://unsplash.com/@danielcgold?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)
 
