@@ -12,11 +12,11 @@
 
 * Lista de peliqueros
 * Página personal del peliquero
+* Lista de consumidores
 * Formulario de ticket
 * Formulario de contacto
 * Verificación de formularios del lado de cliente y del servidor
 * Autorización basada en sesión
-* Lista de consumidores
 
 Para autorizarse poner cualquier email, por ejemplo, *mail@example.com*
 
