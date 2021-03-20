@@ -32,31 +32,40 @@ Eres libre y tienes derecho de hacer todo lo que quieres :-)
 
 #### Pantallas:
 
-Página de inicio ->
+Página de inicio:
+
 ![Página de inicio](screenshots/home.png "Página de inicio")
 
-Lista de peluqueros ->
+Lista de peluqueros:
+
 ![Lista de peluqueros](screenshots/barbers.png "Lista de peluqueros")
 
-Página del peluquero ->
+Página del peluquero:
+
 ![Página del peluquero](screenshots/barber.png "Página de peluquero")
 
-Formulario de cita ->
+Formulario de cita:
+
 ![Formulario de cita](screenshots/ticket.png "Formulario de cita")
 
-Verificación del formulario ->
+Verificación del formulario:
+
 ![Verificación del formulario](screenshots/ticket_check.png "Verificación del formulario")
 
-Formulario de contacto ->
+Formulario de contacto:
+
 ![Formulario de contacto](screenshots/contact.png "Formulario de contacto")
 
-Verificación del formulario ->
+Verificación del formulario:
+
 ![Verificación del formulario](screenshots/contact_check.png "Verificación del formulario")
 
-Login ->
+Login:
+
 ![Login](screenshots/login.png "Login")
 
-Lista de citas ->
+Lista de citas:
+
 ![Lista de citas](screenshots/customers.png "Lista de citas")
 
 #### Fotos:
